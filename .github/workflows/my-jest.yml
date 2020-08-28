@@ -20,12 +20,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
 
       # Runs a single command using the runners shell
-      - name: Install environment
-        run: make inEnv
-
-      # Runs a set of commands using the runners shell
       - name: Run Jest
-        run: make jest
+        uses: stefanoeb/jest-action@1.0.3
+        with:
+          jestArgs: hexlet-jest/__test__/index.test.js
